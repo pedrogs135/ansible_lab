@@ -1,0 +1,20 @@
+---
+- name: "Alterar o ACL do arquivo /tmp/teste.log"
+  hosts: Node_01
+  tasks:
+  - name: "Altear ACL do arquivo /tmp/teste.log"
+    file:
+      path: "/tmp/teste.log"
+      state: touch
+      mode: "777"
+
+  - name: "Listar o arquivo criado"
+    shell:
+      ls -lar /tmp/
+    register: out
+
+  - name: "Printout"
+    debug:
+        msg:
+          - "{{ out. stdout_lines }}"    
+ 

@@ -1,0 +1,14 @@
+---
+- name: "Criar o diretorio /tmp/dir1/"
+  hosts: Node_01
+  tasks:
+  - name: "Criar o diretorio /tmp/dir1"
+    file:
+      path: /tmp/dir1/dir2/dir3/dir4/
+      state: directory
+    register: out
+
+
+  - name: "Printout"
+    debug:
+      var=out    

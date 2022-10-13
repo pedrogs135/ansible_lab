@@ -1,0 +1,11 @@
+---
+- name: "Copiar um arquivo"
+  hosts: Node_01
+  tasks:
+  - name: "Copiar"
+    copy:
+      src: /ansible_lab/exemplo_01/inventario_01.ini
+      dest: /tmp/inventario_01.ini 
+      owner: user1
+      group: user1
+      mode: "770"

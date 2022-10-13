@@ -1,0 +1,37 @@
+
+- name: "play_01"
+  hosts: producao
+  tasks:
+  - name: "Executa o comando df-h"
+    shell: "df -h"
+    register: out_disk_espaco
+
+  - name: "Imprime o resultado"
+    debug:
+      msg: 
+        - "=================================="
+        - " {{ group_names }} - {{ ansible_node_name }}"
+        - "=================================="
+        - "{{ out_disk_espaco.stdout_lines }}"  
+      
+
+- name: "play_02"
+  hosts: firewall
+  tasks:
+  - name: "Comando espaco em disco"
+    shell: "df -h"
+    register: out_disk_espaco
+
+  - name: "Comando inode"
+    shell: "df -i"
+    register: out_disk_inode
+
+  - name: "Imprime espaco em disco"
+    debug:
+      msg:
+      - "============================="
+      - "{{ group_names }} - {{ ansible_node_name }}"
+      - "============================="  
+      - "{{ out_disk_espaco.stdout_lines }}"
+      - "{{ out_disk_inode.stdout_lines  }}"
+      

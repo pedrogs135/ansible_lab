@@ -1,0 +1,9 @@
+---
+- name: "Copiar os arquivo de um diretorio para um host remoto"
+  hosts: Node_01
+  tasks:
+  - name: "Copiar"
+    copy:
+      src: "/ansible_lab/dockfile/"
+      dest: "/tmp"
+      directory_mode: 

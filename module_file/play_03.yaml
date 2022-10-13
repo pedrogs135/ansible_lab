@@ -1,0 +1,18 @@
+---
+- name: "Deletar o arquivo /tmp/teste.log"
+  hosts: Node_01
+  tasks:
+  - name: "Deletar o arquivo /tmp/teste.log"
+    file:
+      path: "/tmp/teste.log"
+      state: absent
+
+  - name: "Lista o diretorio /tmp"
+    shell:
+      ls -la /tmp
+    register: out    
+
+  - name: "Printout"
+    debug:
+      msg: 
+        - "{{ out.stdout_lines }}"   

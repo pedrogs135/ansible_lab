@@ -1,0 +1,27 @@
+---
+- name: "Deletar arquivos"
+  hosts: firewall
+  become: true
+  tasks:
+
+  - name: "Deletar arquivos"
+    file:
+      path: "/tmp/backup/{{ item }}"
+      state: absent
+    loop: 
+    - inventario_01.ini
+    - inventario_02.ini   
+    - inventario_03.ini
+    - inventario_04.ini 
+
+  - name: "Listar o diretorio /tmp/backup/"
+    shell: "ls -la /tmp/backup/"
+    register: var_out
+  
+  - name: "Imrpime na tela o diretorio /tmp/backup"
+    debug:
+      msg: 
+        - "========================================"
+        - "host: {{ ansible_node_name }} Resultado:"
+        - "{{ var_out.stdout_lines }}"
+

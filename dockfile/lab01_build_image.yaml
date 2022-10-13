@@ -1,0 +1,9 @@
+---
+- name: "Criar imagem target"
+  hosts: 127.0.0.1
+  tasks:
+  - name: "Criar imagem"
+    shell: | 
+      docker image build -t ansible_controller /ansible_lab/dockfile/dockfile_ansible_controller/.
+      docker image build -t ansible_target /ansible_lab/dockfile/dockfile_ansible_target/.
+
