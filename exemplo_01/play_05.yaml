@@ -14,16 +14,16 @@
 
   - name: "Copiar os arquivos de inventario para o host remoto"   
     copy:
-      src: "/ansible_lab/exemplo_01/inventario_01.ini"
-      dest: "/tmp/backup/inventario_01.ini"
+      src: "/ansible_lab/exemplo_01/{{ item }}"
+      dest: "/tmp/backup/{{ item }}"
       owner: "user1"
       group: "user1"
       mode: "770"
-    #loop: 
-    #- inventario_01.ini
-    #- inventario_02.ini   
-    #- inventario_03.ini
-    #- inventario_04.ini 
+    loop: 
+    - inventario_01.ini
+    - inexitni   
+    - inventario_03.ini
+    - inventario_04.ini 
    
 
   - name: "Lista o arquivo criado"
