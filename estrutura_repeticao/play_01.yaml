@@ -1,0 +1,15 @@
+---
+- name: "Lista simples"
+  hosts: Node_01
+  tasks:
+  - name: "Criar diretorio"
+    file:
+      path: "/tmp/{{ item }}"
+      owner: user1
+      group: user1
+      state: directory
+    loop:
+    - dir1
+    - dir2
+    - dir3
+    - dir4  

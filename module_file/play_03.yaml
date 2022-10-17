@@ -1,18 +1,14 @@
 ---
-- name: "Deletar o arquivo /tmp/teste.log"
-  hosts: Node_01
+- name: "Criar diretorio"
+  hosts: front_end firewall
   tasks:
-  - name: "Deletar o arquivo /tmp/teste.log"
+  - name: "Criar diretorios"
+    become: true
     file:
-      path: "/tmp/teste.log"
-      state: absent
+      path: "/tmp/dir1/dir2/dir3/dir4/dir5"
+      state: directory
+      owner: user1
+      group: user1
+      mode: 644
 
-  - name: "Lista o diretorio /tmp"
-    shell:
-      ls -la /tmp
-    register: out    
-
-  - name: "Printout"
-    debug:
-      msg: 
-        - "{{ out.stdout_lines }}"   
+ 

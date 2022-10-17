@@ -1,19 +1,13 @@
 ---
-- name: "Teste modulo file" 
-  hosts: Node_01
+- name: "Criar arquivo no destino" 
+  hosts: firewall
   tasks:
     - name: "Criar o arquivo /tmp/teste.log"
       file:
         path: "/tmp/teste.log"
         state: touch
+        owner: user1
+        group: user1
+        mode: "644"
 
-    - name: "Listar o arquivo criado"
-      shell:
-        ls -lar /tmp/
-      register: out
-
-
-    - name: "Printout"
-      debug:
-        msg:
-          - "{{ out. stdout_lines }}"    
+    

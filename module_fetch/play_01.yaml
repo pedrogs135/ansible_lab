@@ -1,0 +1,8 @@
+---
+- name: "Copia arquivos dos Nodes Remotos"
+  hosts: all
+  tasks:
+  - name: "Copia arquivos dos Nodes Remotos"
+    fetch:
+      src: "/var/log/apt/history.log"
+      dest: "/tmp/tmp_ansilbe/history_{{ ansible_node_name }}.log"

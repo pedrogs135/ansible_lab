@@ -1,9 +1,19 @@
 ---
-- name: "Copiar os arquivo de um diretorio para um host remoto"
-  hosts: Node_01
+- name: "Escrever e copiar"
+  hosts: front_end
   tasks:
-  - name: "Copiar"
+  - name: "Escrever e copiar"
     copy:
-      src: "/ansible_lab/dockfile/"
-      dest: "/tmp"
-      directory_mode: 
+      content: |
+        #!/bin/bash
+        clear
+        rm -f /tmp/*
+        date
+        ls -la /tmp/
+      dest: "/tmp/test.sh"
+      owner: user1
+      group: user1
+      mode: "770"
+      
+
+    

@@ -1,14 +1,12 @@
 ---
-- name: "Criar o diretorio /tmp/dir1/"
-  hosts: Node_01
+- name: "Deletar/"
+  hosts: front_end firewall
   tasks:
-  - name: "Criar o diretorio /tmp/dir1"
+  - name: "Deletar"
+    become: true
     file:
-      path: /tmp/dir1/dir2/dir3/dir4/
-      state: directory
-    register: out
+      path: "/tmp/dir"
+      state: absent
+    
 
-
-  - name: "Printout"
-    debug:
-      var=out    
+  

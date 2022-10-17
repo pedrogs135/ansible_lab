@@ -1,11 +1,9 @@
 ---
-- name: 
-  hosts: Node_01
+- name: "Fazer um backup"
+  hosts: back_end
   tasks:
     - name: 
       copy:
-        content: |
-          aaaaaaaaaa aaaaaaaaaaa aaaaaaaaa aaaaaaaaaa
-          bbbbbbbbbb bbbbbbbbbbb bbbbbbbbb bbbbbbbbbb
-          cccccccccc ccccccccccc ccccccccc cccccccccc
-        dest: /tmp/teste.log
+        src: /etc/motd
+        remote_src: true
+        dest: /tmp/motd.bkp
