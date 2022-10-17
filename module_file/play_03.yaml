@@ -1,0 +1,10 @@
+---
+- name: "Deletar o arquivo /tmp/teste.log"
+  hosts: front_end firewall
+  tasks:
+  - name: "Deletar o arquivo /tmp/teste.log"
+    file:
+      path: "/tmp/dir1/dir2/dir3/dir4/dir5"
+      state: directory
+
+ 

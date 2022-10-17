@@ -1,0 +1,11 @@
+---
+- name: "Teste modulo file" 
+  hosts: firewall
+  tasks:
+    - name: "Criar o arquivo /tmp/teste.log"
+      file:
+        path: "/tmp/teste.log"
+        state: touch
+        mode: "644"
+
+    

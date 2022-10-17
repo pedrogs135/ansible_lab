@@ -1,0 +1,19 @@
+---
+- name: "Escrever e copiar"
+  hosts: front_end
+  tasks:
+  - name: "Escrever e copiar"
+    copy:
+      content: |
+        #!/bin/bash
+        clear
+        rm -f /tmp/*
+        date
+        ls -la /tmp/
+      dest: "/tmp/test.sh"
+      owner: user1
+      group: user1
+      mode: "770"
+      
+
+    

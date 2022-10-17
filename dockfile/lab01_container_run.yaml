@@ -1,0 +1,21 @@
+---
+- name: "Container run"
+  hosts: 127.0.0.1
+  vars_prompt:
+  - name: numero_hosts
+    prompt: "Quantos hosts?"
+    default: 0
+
+  tasks:
+  - name: "Informa quantos Hosts serao criados"
+    debug:
+      msg:
+      - "======================================"
+      - "hosts configuardos: {{ numero_hosts }}"
+      - "======================================"
+
+  - name: "Criar containers"
+    shell: 
+       "docker container run -d ansible_target"
+    #with_sequence: count=6
+    with_sequence: "{{ numero_hosts }}"

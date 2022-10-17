@@ -1,0 +1,9 @@
+---
+- name: "Deletar o arquivo /tmp/teste.log"
+  hosts: firewall
+  tasks:
+  - name: "Deletar o arquivo /tmp/teste.log"
+    file:
+      path: "/tmp/teste.log"
+      state: absent  
+ 

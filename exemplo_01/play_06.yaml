@@ -1,0 +1,38 @@
+---
+- name: "Criar o diretorio /tmp/backup/"
+  hosts: firewall
+  become: true
+  tasks:
+  - name: "Criar o diretorio /tmp/backup/ - utilizar o module file"
+    file:
+      path: "/tmp/backup/"
+      state: "directory"
+      owner: "user1"
+      group: "user1"
+      mode: "770" 
+
+
+  - name: "Copiar os arquivos de inventario para o host remoto"   
+    copy:
+      src: "/ansible_lab/exemplo_01/{{ item }}"
+      dest: "/tmp/backup/{{ item }}"
+      owner: "user1"
+      group: "user1"
+      mode: "770"
+    loop: 
+    - inventario_01.ini
+    - inventario_02.ini   
+    - inventario_03.ini
+    - inventario_04.ini 
+   
+
+  - name: "Lista o arquivo criado"
+    shell: ls -l /tmp/backup/
+    register: var_out 
+  
+  
+  - name: "Listar o resultado"
+    debug:
+      msg: 
+      - " Resultado: " 
+      - " {{ var_out.stdout_lines }}"    

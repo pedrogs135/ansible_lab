@@ -1,0 +1,18 @@
+--- 
+- name: "play_01"
+  hosts: Node_03 Node_04
+  tasks:
+  - name: "Executa o comando df-h"
+    shell: "df -h"
+    register: variavel_registra_saida_do_comando
+
+  - name: "Imprime o resultado"
+    debug:
+      msg: 
+        - "=================================="
+        - " {{ ansible_node_name }} - {{ ansible_host }} "
+        - "=================================="
+        - "{{ variavel_registra_saida_do_comando.rc}}"  
+        - "====================================="
+     
+      

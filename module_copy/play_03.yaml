@@ -1,0 +1,9 @@
+---
+- name: 
+  hosts: back_end
+  tasks:
+    - name: 
+      copy:
+        src: /etc/motd
+        remote_src: true
+        dest: /tmp/motd.bkp

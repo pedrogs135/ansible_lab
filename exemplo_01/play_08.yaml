@@ -1,0 +1,20 @@
+---
+- name: "Configurar a crontab"
+  hosts: front_end
+  become: true
+  tasks:
+
+  - name: "Instalar o cron"
+    apt: 
+      name: cron
+
+
+  - name: "Lista a crontab "
+    cron:
+      name: "Criar_arquivo"
+      user: "root"
+      minute: "*"
+      hour: "*"
+      weekday: "*"
+      job: /bin/date >> /tmp/timer.log 
+      state: present

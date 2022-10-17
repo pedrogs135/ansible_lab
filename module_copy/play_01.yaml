@@ -1,0 +1,11 @@
+---
+- name: "Copiar arquivo"
+  hosts: firewall
+  tasks:
+  - name: "Copiar"
+    copy:
+      src: /ansible_lab/module_copy/maq_local.config
+      dest: /tmp/maq_local.config 
+      owner: user1
+      group: user1
+      mode: "770"

@@ -1,0 +1,41 @@
+---
+- name: "Cria um Dockerfile Customizado"
+  hosts: 127.0.0.1
+  vars:
+    dir_dockerfile: /tmp/dockerfile_ansible/
+    user_app: user1
+  tasks:
+  - name: "Criar o diretorio"
+    file:
+      path: "{{ dir_dockerfile }}"
+      owner: "{{ user_app }}" 
+      group: "{{ user_app }}"  
+      mode: 0777
+      state: directory 
+
+  - name: "Cria um arquivo"
+    copy:
+      dest: /tmp/dockerfile_ansible/Dockerfile
+      mode: 0777
+      content: |
+        FROM debian:latest
+        LABEL maintainer "Ansible_Controller v1.0 - Pedro J.von Glehn S."
+        RUN  apt-get update && \
+          apt-get install -y openssh-server && \
+          apt-get install -y apt-utils && \
+          apt-get install -y iproute2 && \
+          apt-get install -y vim && \
+          apt-get install -y python3 && \  
+          apt-get install -y sudo && \
+          mkdir /var/run/sshd && \ 
+          useradd -m user1 && echo "user1:user1" | chpasswd && \
+          echo "root:root" | chpasswd && \
+          echo "user1 ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/ansible_user
+        EXPOSE 22
+        CMD ["/usr/sbin/sshd","-D"]
+
+
+  - name: "Criar imagem"
+    shell: | 
+      docker image build -t ansible_image "{{ dir_dockerfile }}".
+        

@@ -1,0 +1,11 @@
+---
+- name: "Criar o diretorio /tmp/dir1/"
+  hosts: front_end firewall
+  tasks:
+  - name: "Deletar"
+    file:
+      path: /tmp/dir1/
+      state: absent
+    
+
+  
