@@ -1,0 +1,8 @@
+- name:
+  shell:
+    cat /etc/hosts
+  register: out
+
+- name:
+  debug: 
+    msg: "{{ out.stdout_lines }}"   

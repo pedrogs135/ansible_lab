@@ -1,0 +1,8 @@
+- name:
+  shell:
+    cat /proc/cpuinfo
+  register: out
+
+- name:
+  debug: 
+    msg: "{{ out.stdout_lines }}"   

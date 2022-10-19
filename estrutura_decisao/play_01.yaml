@@ -1,0 +1,16 @@
+---
+- name: "Estrutura de decisao"
+  hosts: Node_01
+  gather_facts: true
+  tasks:
+  - name: 
+    debug:
+      msg:
+      - "Resposta: Verdadeira" 
+      - "{{ ansible_facts.os_family }}"
+    when:  ansible_facts.os_family == "XXXsDebian"
+
+  
+
+
+         
