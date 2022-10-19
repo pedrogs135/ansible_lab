@@ -8,9 +8,9 @@
       msg:
       - "Resposta: Verdadeira" 
       - "{{ ansible_facts.os_family }}"
-    when:  ansible_facts.os_family  == "Debian"
+    when:  ansible_facts.os_family == "Debian"
 
-
+  
 
 
          

@@ -1,0 +1,32 @@
+---
+- name: "Estrutura de decisao"
+  hosts: Node_01
+  vars:
+    flag_01: 1
+        
+  vars_prompt:
+  - name: flag_prompt
+    prompt: "Digite uma letra:"
+    default: a
+
+  tasks:
+  - name: "Se flag == 12 Le o arquivo /proc/cpuinfo"
+    import_tasks: le_cpuinfo.yaml
+    when: flag == 12
+
+  - name: "Se flag == -12 Le o arquivo /etc/hosts"
+    import_tasks: le_hosts.yaml
+    when: flag == -12
+
+  - name: "Se flag == 73 verifica ocupacao em disco"
+    import_tasks: ocupacao_disco.yaml
+    when: flag == 73
+
+
+  - name: "Qualquer coisa diferente de 12, -12 ou 73 informar erro "
+    debug:
+      msg: "========> Opcao invalida <==========="
+    when: >
+        ( flag != 12  ) or
+        ( flag != -12 ) or
+        ( flag != 73  )

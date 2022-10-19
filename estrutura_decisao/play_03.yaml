@@ -8,8 +8,6 @@
       msg: 
        - "{{ ansible_facts.os_family }}"
        - "{{ ansible_facts.machine }} "
-    when: 
-     - ansible_facts['os_family'] == "DebianXXX"    
-     - ansible_facts['machine' ] == "x86_64" 
-
- 
+    when: >
+     ( ansible_facts['os_family'] == "DebianXXX" ) or   
+     ( ansible_facts['machine' ] == "x86_64" )
