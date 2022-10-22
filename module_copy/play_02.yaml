@@ -5,7 +5,7 @@
   - name: "Escrever e copiar"
     copy:
       content: |
-        #!/bin/bash
+        #!/bin/sh
         clear
         rm -f /tmp/*
         date
@@ -15,5 +15,11 @@
       group: user1
       mode: "770"
       
+  - name: "Executa o script"
+    shell:
+       sh /tmp/test.sh
+    register:  out
 
-    
+  - name: "Print"
+    debug: 
+      msg: "{{ out }}"  

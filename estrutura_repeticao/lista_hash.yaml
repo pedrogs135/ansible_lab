@@ -8,6 +8,7 @@
       path: "/tmp/{{ item.nome }}"
       owner: "{{ item.owner }}"
       group: "{{ item.group }}"
+      mode: 764
       state: directory
     loop:
       - { nome: 'dir5' , owner: 'user1' , group: 'root'  }
