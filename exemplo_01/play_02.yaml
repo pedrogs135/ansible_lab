@@ -1,7 +1,11 @@
 ---
 
 - name: "play_01"
+<<<<<<< HEAD
   hosts: Node_03
+=======
+  hosts: Node_03 
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
   tasks:
   - name: "Executa o comando df-h"
     shell: "df -h"
@@ -16,6 +20,7 @@
         - "{{ variavel_registra_saida_do_comando.stdout_lines }}"  
       
 
+<<<<<<< HEAD
 - name: "play_01"
   hosts: Node_04
   tasks:
@@ -26,11 +31,26 @@
   - name: "Comando inode"
     shell: "df -i"
     register: 
+=======
+- name: "play_02"
+  hosts: Node_04
+  tasks:
+
+  - name: "Comando inode"
+    shell: "df -i"
+    register: variavel_registra_saida_do_comando
+
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
   - name: "Imprime espaco em disco"
     debug:
       msg:
       - "============================="
       - " {{ ansible_node_name }}"
       - "============================="  
+<<<<<<< HEAD
       - "{{ variavel_registra_saida_do_comando.stdout_lines }}"
       - "{{ variavel_registra_saida_do_comando.stdout_lines  }}"
+=======
+      - "{{ variavel_registra_saida_do_comando }}"
+   
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d

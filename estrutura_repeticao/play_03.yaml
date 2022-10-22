@@ -1,0 +1,12 @@
+--- 
+- name: "Loop register"
+  hosts: Node_01
+  tasks:
+  - name: "Lista diretorio"
+    shell: ls /tmp/
+    register: out
+
+  - name: "Print"
+    debug:
+      msg: "------> {{ item }}" 
+    loop: "{{  out.stdout_lines }}"

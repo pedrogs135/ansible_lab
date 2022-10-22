@@ -1,11 +1,20 @@
 ---
+<<<<<<< HEAD
 - name: "Teste modulo file" 
+=======
+- name: "Criar arquivo no destino" 
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
   hosts: firewall
   tasks:
     - name: "Criar o arquivo /tmp/teste.log"
       file:
         path: "/tmp/teste.log"
         state: touch
+<<<<<<< HEAD
+=======
+        owner: user1
+        group: user1
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
         mode: "644"
 
     

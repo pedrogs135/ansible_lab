@@ -1,5 +1,9 @@
 ---
+<<<<<<< HEAD
 - name: 
+=======
+- name: "Fazer um backup"
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
   hosts: back_end
   tasks:
     - name: 

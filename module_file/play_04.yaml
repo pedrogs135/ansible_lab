@@ -1,10 +1,20 @@
 ---
+<<<<<<< HEAD
 - name: "Criar o diretorio /tmp/dir1/"
   hosts: front_end firewall
   tasks:
   - name: "Deletar"
     file:
       path: /tmp/dir1/
+=======
+- name: "Deletar/"
+  hosts: front_end firewall
+  tasks:
+  - name: "Deletar"
+    become: true
+    file:
+      path: "/tmp/dir"
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
       state: absent
     
 

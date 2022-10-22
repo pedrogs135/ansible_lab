@@ -5,7 +5,11 @@
   - name: "Escrever e copiar"
     copy:
       content: |
+<<<<<<< HEAD
         #!/bin/sh
+=======
+        #!/bin/bash
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
         clear
         rm -f /tmp/*
         date
@@ -15,6 +19,7 @@
       group: user1
       mode: "770"
       
+<<<<<<< HEAD
   - name: "Executa o script"
     shell:
        sh /tmp/test.sh
@@ -23,3 +28,7 @@
   - name: "Print"
     debug: 
       msg: "{{ out }}"  
+=======
+
+    
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d

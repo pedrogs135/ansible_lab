@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 - name: "Deletar o arquivo /tmp/teste.log"
   hosts: front_end firewall
   tasks:
@@ -6,5 +7,18 @@
     file:
       path: "/tmp/dir1/dir2/dir3/dir4/dir5"
       state: directory
+=======
+- name: "Criar diretorio"
+  hosts: front_end firewall
+  tasks:
+  - name: "Criar diretorios"
+    become: true
+    file:
+      path: "/tmp/dir1/dir2/dir3/dir4/dir5"
+      state: directory
+      owner: user1
+      group: user1
+      mode: 644
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
 
  

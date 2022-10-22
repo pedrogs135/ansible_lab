@@ -9,7 +9,11 @@
        - "{{ ansible_facts.os_family }}"
        - "{{ ansible_facts.machine }} "
     when: 
+<<<<<<< HEAD
      - ansible_facts['os_family'] == "Debian"    
+=======
+     - ansible_facts['os_family'] == "DebianXXX"    
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
      - ansible_facts['machine' ] == "x86_64" 
 
  

@@ -1,6 +1,10 @@
 --- 
 - name: "play_01"
+<<<<<<< HEAD
   hosts: Node_03 Node_04
+=======
+  hosts: Node_03 
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
   tasks:
   - name: "Executa o comando df-h"
     shell: "df -h"
@@ -12,7 +16,11 @@
         - "=================================="
         - " {{ ansible_node_name }} - {{ ansible_host }} "
         - "=================================="
+<<<<<<< HEAD
         - "{{ variavel_registra_saida_do_comando.rc}}"  
+=======
+        - "{{ variavel_registra_saida_do_comando.stdout_lines}}"  
+>>>>>>> 4c60a375bdbf476ecc58173eb67acfaa17bd852d
         - "====================================="
      
       

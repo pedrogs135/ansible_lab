@@ -1,0 +1,29 @@
+---
+- name: "Loop register"
+  hosts: Node_01
+  tasks:
+  - name: "Listar diretorio"
+    find: 
+      path: /tmp/
+      file_type: directory
+      recurse: no
+      use_regex: yes
+      pattern: 'dir*'
+    register: out  
+
+  - name: "Mudar o nome"
+    become: true
+    shell:  
+      "mv {{item.path}}  {{ item.path }}_{{ ansible_node_name }}"
+    loop: "{{ out.files }}"
+
+  
+  - name: "Printout"
+    debug: 
+     
+      msg:
+        - "=======================================" 
+        - "mv {{ item.path }} {{item.path }}_{{ansible_node_name }}"    
+        - "======================================="
+    loop: "{{ out.files }}"
+       
