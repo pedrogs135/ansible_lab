@@ -1,0 +1,12 @@
+---
+- name: 
+  hosts: Node_02
+  become: true
+  tasks:
+  - name:
+    lineinfile:
+      path: "/tmp/logline.log"
+      line: "Hello World"
+      regexp: '^# Hello World 5$'
+      state: present
+      create: true

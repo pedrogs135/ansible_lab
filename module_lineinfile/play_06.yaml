@@ -1,0 +1,12 @@
+---
+- name:
+  hosts: Node_01
+  become: yes
+  tasks:
+  - name: "Comentar uma linha"
+    lineinfile:
+      path: "/tmp/logline.log"
+      regexp: "^Hello World 2$"
+      line: "Linha dois foi substituioda"
+      state: present
+      

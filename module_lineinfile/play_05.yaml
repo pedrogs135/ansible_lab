@@ -1,0 +1,10 @@
+---
+- name: 
+  hosts: Node_01
+  become: true
+  tasks:
+  - name:
+    lineinfile:
+      path: "/tmp/logline.log"
+      regexp: "^Hello World 6$"
+      state: absent

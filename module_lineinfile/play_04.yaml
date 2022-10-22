@@ -1,0 +1,12 @@
+---
+- name: 
+  hosts: Node_01
+  become: true
+  tasks:
+  - name:
+    lineinfile:
+      path: "/tmp/logline.log"
+      line: 'Linha anterior'
+      insertbefore: "Hello World 6"
+      state: present
+      create: true

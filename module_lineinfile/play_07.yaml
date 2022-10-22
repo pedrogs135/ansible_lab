@@ -1,0 +1,16 @@
+---
+- name:
+  hosts: Node_01
+  become: yes
+  tasks:
+  - name: "Inserir uma linha Comentar uma linha"
+    lineinfile:
+      path: "/etc/ssh/sshd_config"
+      regexp: "^{{ item.regex_sshd }}$"
+      line: "{{ item.linha_sshd }}"
+      state: present
+    loop:
+      - { regex_sshd: "#LoginGraceTime 2m",  linha_sshd: "LoginGraceTime-------------60" } 
+      - { regex_sshd: "#StrictModes yes",  linha_sshd: "StrictModes-----------no" } 
+      - { regex_sshd: "#MaxAuthTries 6",   linha_sshd: "MaxAuthTries----2" } 
+      - { regex_sshd: "#MaxSessions 10", linha_sshd: "MaxSessions----2"  } 
